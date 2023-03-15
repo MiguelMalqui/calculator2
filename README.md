@@ -2,14 +2,19 @@
 
 ## init package and git
 
-```git init```
-```npm init -y```
+```console
+git init
+npm init -y
+```
 
 ## add ts as dev dependency
 
-```npm install --save-dev typescript```
-
+```console
+npm install --save-dev typescript
 ```
+
+Add tsconfig.json to compile Typescript
+```json
 {
   "compilerOptions": {
     "target": "es5",
@@ -22,11 +27,15 @@
   "exclude": ["node_modules", "**/__tests__/*"]
 }
 ```
+Add a build script to package.json
+```json
+"build" : "tsc"
+```
 
 ## code
 
 Create a src folder in the root and add index.ts file.
-Add a build script to package.json
+
 
 ## .gitignore
 ```
@@ -36,11 +45,15 @@ node_modules
 
 ## include only build files in the package
 Add the files property in package.json
-```"files": ["lib/**/*"]```
+```json
+"files": ["lib/**/*"]
+```
 
-## add prepare script
-prepare will run before package is packed and published. Add to package.json
-```"prepare" : "npm run build"```
+## Prepare to publish
+Add prepare script to package.json. It will run before package is packed and published.
+```json
+"prepare" : "npm run build"
+```
 
 ## publish
 ```npm publish```
